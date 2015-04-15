@@ -15,6 +15,7 @@ With [`use-package`][use-package] in your init file:
 ```el
 (use-package flycheck
   :ensure t
+  :defer t
   :init (add-hook 'prog-mode-hook 'flycheck-mode)
   :config
   (use-package flycheck-perl6
