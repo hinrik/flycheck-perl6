@@ -13,8 +13,12 @@ From [MELPA][] with <kbd>M-x package-install RET flycheck-perl6</kbd>.
 With [`use-package`][use-package] in your init file:
 
 ```el
-(use-package flycheck-perl6
-  :ensure t)
+(use-package flycheck
+  :ensure t
+  :init (add-hook 'prog-mode-hook 'flycheck-mode)
+  :config
+  (use-package flycheck-perl6
+    :ensure t))
 ```
 Or in your [`Cask`][cask] file:
 
