@@ -8,8 +8,6 @@ Make [Flycheck][] syntax-check Perl 6 code.
 Installation
 ------------
 
-From [MELPA][] with <kbd>M-x package-install RET flycheck-perl6</kbd>.
-
 With [`use-package`][use-package] in your init file:
 
 ```el
@@ -28,6 +26,7 @@ Or in your [`Cask`][cask] file:
 
 (depends-on "flycheck-perl6")
 ```
+Or manually from [MELPA][] with <kbd>M-x package-install RET flycheck-perl6</kbd>.
 
 Usage
 -----
