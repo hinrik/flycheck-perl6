@@ -26,7 +26,9 @@ Or in your [`Cask`][cask] file:
 
 (depends-on "flycheck-perl6")
 ```
-Or manually from [MELPA][] with <kbd>M-x package-install RET flycheck-perl6</kbd>.
+
+Or manually from [MELPA][] with <kbd>M-x package-refresh-contents</kbd>
+and <kbd>M-x package-install RET flycheck-perl6</kbd>.
 
 Usage
 -----
