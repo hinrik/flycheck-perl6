@@ -14,10 +14,10 @@ With [`use-package`][use-package] in your init file:
 (use-package flycheck
   :ensure t
   :defer t
-  :init (add-hook 'prog-mode-hook 'flycheck-mode)
-  :config
-  (use-package flycheck-perl6
-    :ensure t))
+  :hook (prog-mode . flycheck-mode))
+
+(use-package flycheck-perl6
+  :ensure t)
 ```
 Or in your [`Cask`][cask] file:
 
