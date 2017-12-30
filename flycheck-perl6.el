@@ -45,7 +45,9 @@
   :command ("perl6" "-c" source)
   :error-patterns
   ((error (or (and line-start (message) "\nat " (file-name) ":" line line-end)
-              (and "compiling " (file-name) "\n" (message (minimal-match (1+ anything))) " at line " line))))
+              (and "compiling " (file-name) "\n" (message (minimal-match (1+ anything))) " at line " line)
+              ; "Module not found" message
+              (and "===SORRY!===\n" (message (minimal-match (1+ anything))) " at line " line))))
   :modes perl6-mode)
 
 (add-to-list 'flycheck-checkers 'perl6)
