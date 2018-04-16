@@ -44,10 +44,10 @@
   "A Perl 6 syntax checker."
   :command ("perl6" "-c" source)
   :error-patterns
-  ((error (or (and line-start (message) "\nat " (file-name) ":" line line-end)
-              (and "compiling " (file-name) "\n" (message (minimal-match (1+ anything))) " at line " line)
+  ((error (or (and line-start (message) ?\r "\nat " (file-name) ":" line ?\r line-end)
+              (and "compiling " (file-name) ?\r "\n" (message (minimal-match (1+ anything))) " at line " line)
               ; "Module not found" message
-              (and "===SORRY!===\n" (message (minimal-match (1+ anything))) " at line " line))))
+              (and "===SORRY!===" ?\r "\n" (message (minimal-match (1+ anything))) " at line " line))))
   :modes perl6-mode)
 
 (add-to-list 'flycheck-checkers 'perl6)
