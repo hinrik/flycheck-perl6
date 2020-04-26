@@ -5,3 +5,8 @@ flycheck-perl6 Changes
 ----------------
 
 - First release
+
+0.2 (2020-04-22)
+----------------
+
+- Rename Perl 6 to Raku

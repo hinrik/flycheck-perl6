@@ -1,11 +1,14 @@
-;;; flycheck-perl6.el --- Perl 6 support in Flycheck -*- lexical-binding: t; -*-
+;;; flycheck-raku.el --- Raku support in Flycheck -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015 Hinrik Örn Sigurðsson <hinrik.sig@gmail.com>
+;; Copyright (C) 2020 Johnathon Weare <jrweare@gmail.com>
 
-;; Author: Hinrik Örn Sigurðsson <hinrik.sig@gmail.com>
-;; URL: https://github.com/hinrik/flycheck-perl6
+;; Author: Hinrik Örn Sigurðsson <hinrik.sig@gmail.com>, Johnathon Weare <jrweare@gmail.com>
+;; original URL: https://github.com/hinrik/flycheck-perl6
+;; URL: https://github.com/widefox/flycheck-raku
+;; Package-Version: 20200423.1
 ;; Keywords: tools, convenience
-;; Version: 0.1-git
+;; Version: 0.2-git
 ;; Package-Requires: ((emacs "24.3") (flycheck "0.22"))
 
 ;; This file is not part of GNU Emacs.
@@ -25,48 +28,48 @@
 
 ;;; Commentary:
 
-;; Perl 6 syntax checking support for Flycheck.
+;; Raku syntax checking support for Flycheck.
 
-;; Runs "perl6 -c" on your code. Currently does not report the exact
+;; Runs "raku -c" on your code.  Currently does not report the exact
 ;; column number of the error, just the line number.
 
 ;;; Code:
 
 (require 'flycheck)
 
-(defgroup flycheck-perl6 nil
-  "Perl 6 support for Flycheck."
-  :prefix "flycheck-perl6-"
+(defgroup flycheck-raku nil
+  "Raku support for Flycheck."
+  :prefix "flycheck-raku-"
   :group 'flycheck
-  :link '(url-link :tag "Github" "https://github.com/hinrik/flycheck-perl6"))
+  :link '(url-link :tag "Github" "https://github.com/widefox/flycheck-raku"))
 
-(flycheck-def-option-var flycheck-perl6-include-path nil perl6
-  "A list of include directories for Perl6.
+(flycheck-def-option-var flycheck-raku-include-path nil raku
+  "A list of include directories for Raku (change this from raku to perl6 if on an old install).
 
 The value of this variable is a list of strings, where each
-string is a directory to add to the include path of Perl6.
+string is a directory to add to the include path of Raku.
 Relative paths are relative to the file being checked."
   :type '(repeat (directory :tag "Include directory"))
   :safe #'flycheck-string-list-p)
 
-(flycheck-define-checker perl6
-  "A Perl 6 syntax checker."
-  :command ("perl6" "-c"
-            (option-list "-I" flycheck-perl6-include-path) source)
+(flycheck-define-checker raku
+  "A Raku syntax checker."
+  :command ("raku" "-c"
+            (option-list "-I" flycheck-raku-include-path) source)
   :error-patterns
   ((error (or (and line-start (message) (? "\r") "\nat " (file-name) ":" line (? "\r") line-end)
               (and "compiling " (file-name) (? "\r") "\n" (message (minimal-match (1+ anything))) " at line " line)
               ; "Module not found" message
               (and "===SORRY!===" (? "\r") "\n" (message (minimal-match (1+ anything))) " at line " line))))
-  :modes perl6-mode)
+  :modes raku-mode)
 
-(add-to-list 'flycheck-checkers 'perl6)
+(add-to-list 'flycheck-checkers 'raku)
 
-(provide 'flycheck-perl6)
+(provide 'flycheck-raku)
 
 ;; Local Variables:
 ;; coding: utf-8
 ;; indent-tabs-mode: nil
 ;; End:
 
-;;; flycheck-perl6.el ends here
+;;; flycheck-raku.el ends here
