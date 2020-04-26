@@ -1,4 +1,7 @@
 *.elc
 /.cask/
 dist/
-flycheck-perl6-pkg.el
+flycheck-raku-pkg.el
+GPATH
+GRTAGS
+GTAGS

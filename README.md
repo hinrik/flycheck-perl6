@@ -1,9 +1,9 @@
-`flycheck-perl6`
+`flycheck-raku`
 ================
 
-Make [Flycheck][] syntax-check Perl 6 code.
+Make [Flycheck][] syntax-check Raku code.
 
-![Emacs screenshot with flycheck-perl6](https://github.com/hinrik/flycheck-perl6/raw/master/flycheck-perl6-screenshot.png)
+![Emacs screenshot with flycheck-raku](https://github.com/widefox/flycheck-raku/raw/master/flycheck-raku-screenshot.png)
 
 Installation
 ------------
@@ -16,24 +16,25 @@ With [`use-package`][use-package] in your init file:
   :defer t
   :hook (prog-mode . flycheck-mode))
 
-(use-package flycheck-perl6
+(use-package flycheck-raku
   :ensure t)
 ```
+
 Or in your [`Cask`][cask] file:
 
 ```cl
 (source melpa)
 
-(depends-on "flycheck-perl6")
+(depends-on "flycheck-raku")
 ```
 
 Or manually from [MELPA][] with <kbd>M-x package-refresh-contents</kbd>
-and <kbd>M-x package-install RET flycheck-perl6</kbd>.
+and <kbd>M-x package-install RET flycheck-raku</kbd>.
 
 Usage
 -----
 
-Just use Flycheck as usual in [Perl 6 Mode][perl6-mode].
+Just use Flycheck as usual in [Raku Mode][raku-mode].
 
 License
 -------
@@ -56,5 +57,6 @@ See [`COPYING`][copying] for details.
 [use-package]: https://github.com/jwiegley/use-package
 [Cask]: https://github.com/cask/cask
 [MELPA]: http://melpa.milkbox.net
-[COPYING]: https://github.com/hinrik/flycheck-perl6/blob/master/COPYING
-[perl6-mode]: https://github.com/hinrik/perl6-mode
+[ORIGCOPYING]: https://github.com/hinrik/flycheck-perl6/blob/master/COPYING
+[COPYING]: https://github.com/widefox/flycheck-raku/blob/master/COPYING
+[raku-mode]: https://github.com/Raku/raku-mode
