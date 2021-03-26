@@ -1,3 +1,5 @@
+Note: this has been forked and the fork included in Melpa, so I'm archiving this. Consider the master now Raku/flycheck-raku .
+
 `flycheck-raku`
 ================
 
